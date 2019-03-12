@@ -1,8 +1,38 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
-a {
-  color: #00B7FF; }
+body{
+  background-color: white
+}
 
-/*# sourceMappingURL=style.css.map */
+p{
+  margin: auto;
+}
+
+nav.navbar-light{
+  padding: 0px 0px;
+  border-bottom: 1px solid lightgray;
+}
+
+a.logo {
+  font-family: 'Rancho', cursive;
+  font-size: 30px;
+}
+
+div.collapse > ul.mr-auto{
+  margin-right: 0 !important;
+  margin-left: auto;
+}
+
+a.nav-link{
+  margin-left: 10px !important;
+}
+
+.footer{
+  border-top: 0.4em solid rgb(131, 119, 119);
+  background-color: #282c35;
+  color: white;
+  padding-right: 15%;
+  padding-left: 15%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
