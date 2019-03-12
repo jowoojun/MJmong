@@ -1,7 +1,36 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    title= MJmong
+    // default
+    link(rel='stylesheet', href='/stylesheets/style.css')    
+    // Bootstrap for pug 
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+    // BootstrapCDN font-awesome for pug 
+    link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+
+    // default
+    script(src="javascripts/layout.js")
+    // Bootstrap for pug 
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js")
+    // lodash
+    script(src='https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js')
+    // jquery for pug
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+    // ajax for pug
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js')
   body
+    block top-nav
+      include include/topnav
+    block flash-massage-panel
+      if flashMessage
+        each text, type in flashMessage
+          .container 
+            .alert.alert-dismissible.fade.show(class=`alert-${type}`)
+              each msg in text
+                | #{msg} 
+              button.close(type='button', data-dismiss='alert', aria-label='close')
+                span(aria-hidden='true') &times;
     block content
+    block footer
+      include include/footer
