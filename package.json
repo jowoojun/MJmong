@@ -12,13 +12,10 @@
     "http-errors": "~1.6.2",
     "morgan": "~1.9.0",
     "node-sass-middleware": "0.11.0",
-    "pug": "2.0.0-beta11"
-  },
-  "devDependencies": {
-    "connect-flash": "^0.1.1",
-    "heroku": "^7.22.4",
+    "pug": "2.0.0-beta11",
     "mocha": "^6.0.2",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "connect-flash": "^0.1.1"
   },
   "engines": {
     "node": "8.10.0",

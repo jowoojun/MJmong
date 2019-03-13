@@ -6,6 +6,7 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 // flashMessage
 var flash = require('connect-flash');
+var favicon = require('serve-favicon');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,6 +31,9 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// set favicon 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
