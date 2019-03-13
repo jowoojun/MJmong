@@ -1,10 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+
 div.carousel {
   display: none;
 }
 
-div.body {
-  margin: 0 13% 0 13%;
+/* 이미지 부분 */
+img.main_img{
+  width:100%;
+}
+
+div.textBox{
+  position: absolute;
+  top: 3em;
+  width: 12em;
+  margin-left: 10%;
+  padding: 1% 2.5% 2% 2.5%;
   
+  z-index: 2;
+  font-size: 40px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.98);
+}
+
+div.textBox > h1.title{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Rancho', cursive;
+  display: block;
+  font-size: 1em;
+}
+
+h2.subtitle{
+  font-size: 0.5em;
+  margin-bottom: 1em;
+}
+
+div.input-box{
+  padding-bottom: 3%;
+}
+
+div.input-box-date{
+  padding-bottom: 3%;
+  float:left;
+}
+
+div.first-box{
+  padding-right:7%;
+}
+
+div.input-box > h4.input-label{
+  font-family: 'Rancho', cursive;
+  margin-bottom: 0%;
+  font-size: 15px;
+  display: block;
+}
+
+button.searchBtn{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width:100%;
+}
+
+/* 카드 부분 */
+div.body {
+  margin: 0 10% 0 10%;
 }
 
 .popularEvents{
@@ -15,10 +76,6 @@ div.body {
   padding: 0;
 }
 
-div.card_list{
-  text-align: center;
-}
-
 a.plain{
   text-decoration: none !important;
 }
@@ -27,7 +84,7 @@ div.card{
   margin-top: 1%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   display: inline-block;
-  width:15em;
+  width: 23%;
   margin: 0.5% 1.0% 0.5% 1.0%; 
 }
 
@@ -107,42 +164,6 @@ p.event-people{
   left: 0;
   overflow: hidden;
 }
-
-/* .half-star:before {
-  color: yellow;
-  content: "\2605";
-  width: 50%;
-  position: absolute;
-  left: 0;
-  overflow: hidden;
-}
-
-.half-star:after {
-  content: '\2605';
-  position: absolute;
-  left: 1.5rem;
-  width: 50%;
-  text-indent: -1.5rem;
-  overflow: hidden;
-} */
-
-
-/* 
-div.event-list{
-  margin-left: 9%;
-  margin-right: 9%;
-} */
-
-
-
-
-
-
-
-
-
-
-
 
 /* @media only screen and (min-device-width:768px) {
   div.body {

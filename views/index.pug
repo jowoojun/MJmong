@@ -4,7 +4,7 @@ block css
   link(rel='stylesheet', type='text/css', href='/stylesheets/home.css')
 
 block content
-
+  include ./main
   div.body
     p.popularEvents
       | xx대학교 멘토링에 직접 참여한 멘티들의 후기
@@ -12,7 +12,7 @@ block content
       | xx대학교의 멘토링은 평균 별 5개 중 N개를 받았습니다
     //- each event in events
     div.card_list
-      .card.centered
+      .card
         a.plain(href="/")
           img.card-img-top(src='images/A6.jpeg', alt='event_photo')
           .card-img-overlay

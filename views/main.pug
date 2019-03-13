@@ -1,0 +1,29 @@
+.top
+    // 이미지 슬라이드
+    
+    img.main_img(src='../images/main.jpg', alt='First slide')
+    // 이미지 앞 텍스트
+    .col-xs-12.col-sm-12.textBox
+      h1.title MJmong에서 새로운 멘토를 찾으세요
+      h2.subtitle 혼자서 공부하기 이해하기 힘든 전공 수업부터 스펙을 위한 각종 자격증 시험까지, 당신의 학업을 위해 MJmong이 함께 합니다.
+      
+      div.input-box
+        h4.input-label 학교
+        input.form-control.long-input(type='text', name='term', placeholder='어디 학교세요?', aria-label='Search')
+      div.input-box
+        h4.input-label 지역
+        input.form-control.long-input(type='text', name='location', placeholder='모든 위치', aria-label='location')
+    
+      div.input-box.input-box-date.first-box
+        h4.input-label 시작일
+        input.form-control.input-date(type='text', name='start_date', placeholder='년/월/일', aria-label='Start-date')
+      div.input-box.input-box-date
+        h4.input-label 종료일
+        input.form-control.input-date(type='text', name='end_date', placeholder='년/월/일', aria-label='End-date')
+      button.btn.btn-info.search.searchBtn(type='submit') Search
+      //- // 검색엔진
+      //- nav.navbar.navbarSearch
+      //-   form.form-inline(action='/events', method='GET')
+      //-     input.form-control.searchInput(type='text', name='term', placeholder='Search events', aria-label='Search')
+      //-     input.form-control.search(type='text', name='location', placeholder='City or location', value='Seoul, Republic of Korea', onfocus="this.value=''; return true")
+      //-     button.btn.btn-info.my-2.my-sm-0.search.searchBtn(type='submit') Search

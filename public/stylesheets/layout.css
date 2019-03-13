@@ -16,6 +16,7 @@ nav.navbar-light{
 a.logo {
   font-family: 'Rancho', cursive;
   font-size: 30px;
+  padding-left:5px;
 }
 
 div.collapse > ul.mr-auto{
