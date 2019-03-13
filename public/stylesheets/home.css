@@ -4,6 +4,7 @@ div.carousel {
 
 div.body {
   margin: 0 13% 0 13%;
+  
 }
 
 .popularEvents{
@@ -14,13 +15,20 @@ div.body {
   padding: 0;
 }
 
+div.card_list{
+  text-align: center;
+}
+
+a.plain{
+  text-decoration: none !important;
+}
+
 div.card{
   margin-top: 1%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   display: inline-block;
   width:15em;
-  margin: 0.5% 1.0% 0.5% 1.0%;
-  
+  margin: 0.5% 1.0% 0.5% 1.0%; 
 }
 
 div.card-img-overlay {
@@ -66,7 +74,7 @@ p.event-people{
 }
 
 .favorite{
-  display: inline-block
+  float: left;
 }
 
 .rating-box {
