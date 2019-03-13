@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "style.css",
+	"file": "layout.css",
 	"sources": [
-		"style.sass"
+		"layout.sass"
 	],
 	"names": [],
 	"mappings": "AAAA,AAAA,IAAI,CAAC;EACH,OAAO,EAAE,IAAI;EACb,IAAI,EAAE,kDAAkD,GAAG;;AAE7D,AAAA,CAAC,CAAC;EACA,KAAK,EAAE,OAAO,GAAG"

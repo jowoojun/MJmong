@@ -3,7 +3,7 @@ html
   head
     title= MJmong
     // default
-    link(rel='stylesheet', href='/stylesheets/style.css')    
+    link(rel='stylesheet', href='/stylesheets/layout.css')    
     // Bootstrap for pug 
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', integrity='sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M', crossorigin='anonymous')
     // BootstrapCDN font-awesome for pug 
@@ -31,6 +31,7 @@ html
                 | #{msg} 
               button.close(type='button', data-dismiss='alert', aria-label='close')
                 span(aria-hidden='true') &times;
+    block css
     block content
     block footer
       include include/footer
