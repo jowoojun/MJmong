@@ -37,6 +37,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+require('./routes/auth')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

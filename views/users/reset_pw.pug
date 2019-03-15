@@ -1,0 +1,15 @@
+//- 비밀번호 초기화 창
+#resetPWModal.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h3#exampleModalLabel.modal-title 비밀번호 초기화
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') ×
+      .modal-body
+        form(action='/resetPassword' method='POST')
+          .form-group
+            label(for='email') 이메일
+            input#name.form-control(type='text', name='email', placeholder='이메일')
+            small 발송된 비밀번호는 꼭 새로운 비밀번호로 변경해주세요.
+          button.btn.btn-primary(type='submit' style="float:right") 발송

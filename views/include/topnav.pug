@@ -7,11 +7,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
         li.nav-item.active
           a.nav-link(href='/mentoing/toBeMento') 멘토가 되어보세요
         li.nav-item.active
-          a.nav-link(href='/signin') 
+          a.nav-link(href='/signup', data-toggle='modal', data-target='#signupModal') 
             | 회원가입
+          include ../users/signup.pug
         li.nav-item.active
-          a.nav-link(href='/signin') 
+          a.nav-link(href='/signin', data-toggle='modal', data-target='#signinModal') 
             | 로그인
+          include ../signin.pug
+          include ../users/signup.pug
+          include ../users/reset_pw.pug
       else
         if(OnlineUser.isMento)
           li.nav-item.active

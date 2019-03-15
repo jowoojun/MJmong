@@ -8,6 +8,7 @@ p{
   margin: auto;
 }
 
+/* navigation */
 nav.navbar-light{
   padding: 0px 0px;
   border-bottom: 1px solid lightgray;
@@ -28,6 +29,7 @@ a.nav-link{
   margin-left: 10px !important;
 }
 
+/* footer */
 .footer{
   border-top: 0.4em solid rgb(131, 119, 119);
   background-color: #282c35;
@@ -37,4 +39,10 @@ a.nav-link{
   padding-left: 15%;
   padding-top: 3%;
   padding-bottom: 3%;
+}
+
+/* 로그인 */
+.float-left-align{
+  float:right;
+  width: 100%;
 }
