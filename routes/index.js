@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var countries = ["명지대학교 서울캠퍼스", "명지대학교 용인캠퍼스", "단국대학교 분당캠퍼스", "명지고등학교", "명지중학교", "명지초등학교", "명지전문대학교"];
+var campus = ["명지대학교 서울캠퍼스", "명지대학교 용인캠퍼스", "단국대학교 분당캠퍼스", "명지고등학교", "명지중학교", "명지초등학교", "명지전문대학교"];
+var major = ["컴퓨터공학과", "전자공학과", "문헌정보학과", "데이터테크놀로지학과", "경제학과","경영학과","사회복지학과","기계공학과","전기공학과","수학과","화학과"];
 
 
 /* GET home page. */
@@ -13,18 +14,28 @@ router.post('/search', function(req, res, next) {
   res.render('test');
 });
 
-// 검색
-router.get('/suggest', function(req, res, next) {
+// 캠퍼스 검색
+router.get('/campus_search', function(req, res, next) {
   let q = req.query.q ? req.query.q.toLowerCase() : '';
 
   if (!q) {
     return res.json([]);
   }
 
-  // q의 내용이 name에 포함된 이름만 모아서 배열로 반환
-  // JSON으로 결과를 return
-  res.json(countries.filter(name => {
-    // name, query 모두 소문자로 변경하여 대소문자 구별 없이 포함하고 있는지 비교
+  res.json(campus.filter(name => {
+    return name.toLowerCase().indexOf(q) > -1;
+  }));
+});
+
+// 전공 검색
+router.get('/major_search', function(req, res, next) {
+  let q = req.query.q ? req.query.q.toLowerCase() : '';
+
+  if (!q) {
+    return res.json([]);
+  }
+
+  res.json(major.filter(name => {
     return name.toLowerCase().indexOf(q) > -1;
   }));
 });

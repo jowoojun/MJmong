@@ -7,14 +7,15 @@
     h2.subtitle 혼자서 공부하기 이해하기 힘든 전공 수업부터 스펙을 위한 각종 자격증 시험까지, 당신의 학업을 위해 MJmong이 함께 합니다.
     
     form(id='search-form', action='/search', method='POST')
-      div.input-box.form
+      div.input-box
         h4.input-label 학교
         input.form-control.long-input(type='text', name='campus', id='campus', placeholder='명지대학교 용인캠퍼스', aria-label='campus')
-        ul.suggest-box
+        ul.campus-suggest-box.suggest-box
           
       div.input-box
         h4.input-label 전공
-        input.form-control.long-input(type='text', name='location', placeholder='컴퓨터공학과', aria-label='major')
+        input.form-control.long-input(type='text', name='major', id='major', placeholder='컴퓨터공학과', aria-label='major')
+        ul.major-suggest-box.suggest-box
     
       div.input-box.input-box-date.first-box
         h4.input-label 시작일
@@ -24,7 +25,8 @@
         input.form-control.input-date(type='text', name='end_date', placeholder='년/월/일', aria-label='End-date')
       button.btn.btn-info.search.searchBtn(type='submit') Search
   
-    script(src='/javascripts/autocomplete.js')
+    script(src='/javascripts/campus_autocomplete.js')
+    script(src='/javascripts/major_autocomplete.js')
       //- // 검색엔진
       //- nav.navbar.navbarSearch
       //-   form.form-inline(action='/events', method='GET')
