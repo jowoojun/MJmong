@@ -19,10 +19,10 @@
     
       div.input-box.input-box-date.first-box
         h4.input-label 시작일
-        input.form-control.input-date(type='text', name='start_date', placeholder='년/월/일', aria-label='Start-date')
+        input.form-control.input-date(type='date', name='start_date', placeholder='년/월/일', aria-label='Start-date')
       div.input-box.input-box-date
         h4.input-label 종료일
-        input.form-control.input-date(type='text', name='end_date', placeholder='년/월/일', aria-label='End-date')
+        input.form-control.input-date(type='date', name='end_date', placeholder='년/월/일', aria-label='End-date')
       button.btn.btn-info.search.searchBtn(type='submit') Search
   
     script(src='/javascripts/campus_autocomplete.js')
