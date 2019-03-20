@@ -16,17 +16,11 @@
         h4.input-label 전공
         input.form-control.long-input(type='text', name='major', id='major', placeholder='컴퓨터공학과', aria-label='major')
         ul.major-suggest-box.suggest-box
-    
-      div.input-box.input-box-date.first-box
-        h4.input-label 시작일
-        input.form-control.input-date(type='date', name='start_date', placeholder='년/월/일', aria-label='Start-date')
-      div.input-box.input-box-date
-        h4.input-label 종료일
-        input.form-control.input-date(type='date', name='end_date', placeholder='년/월/일', aria-label='End-date')
       button.btn.btn-info.search.searchBtn(type='submit') Search
-  
+    
     script(src='/javascripts/campus_autocomplete.js')
     script(src='/javascripts/major_autocomplete.js')
+    
       //- // 검색엔진
       //- nav.navbar.navbarSearch
       //-   form.form-inline(action='/events', method='GET')

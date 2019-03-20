@@ -7,7 +7,7 @@
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
       .modal-body
-        form(action='/users/signin', method='POST')
+        form(action='/auth/signin', method='POST')
           .form-group
             label 이메일
             input.form-control(type='email', aria-describedby='emailHelp', placeholder='이메일', name='email', required, autofocus)
