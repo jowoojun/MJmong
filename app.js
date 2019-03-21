@@ -36,20 +36,20 @@ mongoose.connection.on('error', console.log);
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: 'long-long-long-secret-string-1313513tefgwdsvbjkvasd'
+  secret: 'long-long-long-long--long-secret-12341234jowoojun'
 }));
-
-// use variable in router
-app.use(function(req, res, next) {
-  res.locals.OnlineUser = req.user;
-  res.locals.flashMessages = req.flash();
-  next();
-});
 
 // passport
 app.use(passport.initialize());
 app.use(passport.session());
 passportConfig(passport);
+
+// use variable in router
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 app.use(logger('dev'));
 app.use(express.json());

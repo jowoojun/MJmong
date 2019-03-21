@@ -3,9 +3,20 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
   
   div.collapse.navbar-collapse.col-md-7.ml-auto
     ul.navbar-nav.mr-auto
-      if(!OnlineUser)
+      if(currentUser)
         li.nav-item.active
-          a.nav-link(href='/mentoing/toBeMento') 멘토가 되어보세요
+          a.nav-link(href='/mentoing') 
+            | 신청 목록
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href=`/users/${currentUser._id}`, data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') 
+            | My Picture
+          .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            a.dropdown-item(href=`/users/${currentUser._id}`) 프로필
+            a.dropdown-item(href=`/users/${currentUser._id}/favorite`) 계정
+            a.dropdown-item(href='/signout') 로그아웃
+      else
+        li.nav-item.active
+          a.nav-link(href='/mentoing/toBeMento') 멘토가 찾으세요.
         li.nav-item.active
           a.nav-link(href='/signup', data-toggle='modal', data-target='#signupModal') 
             | 회원가입
@@ -16,22 +27,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
           include ../users/signin.pug
           include ../users/signup.pug
           include ../users/reset_pw.pug
-      else
-        if(OnlineUser.isMento)
-          li.nav-item.active
-            a.nav-link(href='/mentoing/new') 
-              | 강좌를 열어보세요
-        else
-          li.nav-item.active
-            a.nav-link(href='/mentoing/toBeMento') 
-              | 멘토가 되어보세요
-
-        li.nav-item.active
-          a.nav-link(href='/mentoing') 
-            | 신청 목록
-        a.nav-link.dropdown-toggle(href=`/users/${currentUser._id}`, data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') 
-          | My Picture
-        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-          a.dropdown-item(href=`/users/${currentUser._id}`) 프로필
-          a.dropdown-item(href=`/users/${currentUser._id}/favorite`) 계정
-          a.dropdown-item(href='/signout') 로그아웃
+        
