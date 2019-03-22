@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models/user');
+var User = require('../models/User');
 const catchErrors = require('../lib/async-error');
 
 function needAuth(req, res, next) {
