@@ -14,9 +14,12 @@
           .form-group
             label 비밀번호
             input.form-control(type='password', name='password', placeholder='비밀번호', required, autofocus)
-          button.btn.btn-primary.float-left-align(type='submit') 로그인
+          button.btn.btn-primary.plain.float-left-align(type='submit') 로그인
+          a.btn.blue.float-left-align(href='/auth/facebook')
+            img(src='../../images/fb-logo.png', alt='First slide' style="width:5%")
+            |  Facebook
+          a.btn.yellow.float-left-align(href='/auth/kakaotalk')
+            img(src='../../images/kakao-logo.png', alt='First slide' style="width:5%")
+            |  Kakaotalk
       .modal-footer
         a.reset-password(href='/reset_pw', data-toggle='modal', data-target='#resetPWModal') 비밀번호 초기화
-        
-        
-                

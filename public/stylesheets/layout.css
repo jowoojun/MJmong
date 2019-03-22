@@ -45,4 +45,23 @@ a.nav-link{
 .float-left-align{
   float:right;
   width: 100%;
+  margin-bottom: 2%;
+}
+
+.plain{
+  background-color: grey !important;
+  color: black !important;
+  font-weight: 500 !important;
+}
+
+.blue{
+  background-color: #1f75d9;
+  color: black;
+  font-weight: 500 !important;
+}
+
+.yellow{
+  background-color: yellow;
+  color: black;
+  font-weight: 500 !important;
 }
