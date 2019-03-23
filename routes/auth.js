@@ -1,7 +1,7 @@
 
 module.exports = (app, passport) => {
   app.get('/signin', (req, res, next) => {
-    res.render('signin');
+    res.render('user/signin');
   });
 
   app.post('/auth/signin', passport.authenticate('local-signin', {
@@ -20,7 +20,7 @@ module.exports = (app, passport) => {
       failureFlash : true
     }), (req, res, next) => {
       req.flash('success', 'Welcome!');
-      res.redirect('/events');
+      res.redirect('/');
     }
   );
 
