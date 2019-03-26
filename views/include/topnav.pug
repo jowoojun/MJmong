@@ -5,7 +5,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
     ul.navbar-nav.mr-auto
       if(!currentUser)
         li.nav-item.active
-          a.nav-link(href='/mentoing/toBeMento') 멘토가 찾으세요
+          a.nav-link(href='/board') 멘토가 찾으세요
         li.nav-item.active
           a.nav-link(href='/signup', data-toggle='modal', data-target='#signupModal') 
             | 회원가입
@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-white
           include ../users/reset_pw.pug
       else
         li.nav-item.active
-          a.nav-link(href='/mentoing') 
+          a.nav-link(href='/board') 
             | 전체 목록
         //- img(src='images/profile-default.png' style="width:10%;height:10%;padding:0;margin:0")
         li.nav-item.dropdown

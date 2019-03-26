@@ -15,6 +15,7 @@ var mongoose   = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var boardRouter = require('./routes/board');
 var passportConfig = require('./lib/passport-config');
 
 var app = express();
@@ -68,6 +69,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/board', boardRouter);
 require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler
