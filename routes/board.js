@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const catchErrors = require('../lib/async-error');
-const Event = require('../models/event');
+const Event = require('../models/Event');
 
 /* GET home page. */
 router.get('/',  catchErrors(async (req, res, next) => {
@@ -22,7 +22,7 @@ router.get('/',  catchErrors(async (req, res, next) => {
     populate: 'author', 
     page: page, limit: limit
   });
-  
+
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 
