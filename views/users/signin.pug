@@ -22,4 +22,6 @@
             img(src='../../images/kakao-logo.png', alt='First slide' style="width:5%")
             |  Kakaotalk
       .modal-footer
+        a.reset-password(href='/signup', data-toggle='modal', data-target='#signModal') 회원 가입
+        |  or
         a.reset-password(href='/reset_pw', data-toggle='modal', data-target='#resetPWModal') 비밀번호 초기화
