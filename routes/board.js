@@ -3,6 +3,14 @@ var router = express.Router();
 const catchErrors = require('../lib/async-error');
 const Event = require('../models/Event');
 
+function needAuth(req, res, next) {
+  if (req.isAuthenticated()) {
+    next();
+  } else {
+    req.flash('danger', 'Please signin first.');
+  }
+}
+
 /* GET home page. */
 router.get('/',  catchErrors(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
@@ -26,5 +34,8 @@ router.get('/',  catchErrors(async (req, res, next) => {
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 
+router.get('/new', catchErrors(async(req, res, next) => {
+  res.render('board/new', {events: {}});
+}));
 
 module.exports = router;

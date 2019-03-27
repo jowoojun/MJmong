@@ -1,0 +1,16 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet' type='text/css' href='/stylesheets/events/new.min.css')
+  
+block script
+  script(src='../javascripts/dynamic_input.js')
+    
+block content
+  .createEvent
+    form#createEvent(action='/events', method='POST')
+      include ./includes/_form
+      .save
+        button.btn.btn-outline-primary(type='submit') SAVE
+        
+              

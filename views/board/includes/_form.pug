@@ -1,0 +1,32 @@
+p.create-title Event Details
+.form-group
+  label(for='title') EVENT TITLE *
+  input#title.form-control(type='text' name='title' placeholder='Give it a short distinct name')
+.form-group
+  label(for='event-description') EVENT DESCRIPTION *
+  textarea#mytextarea.form-control(rows='7' name='event_description')
+p.create-title Additional Setting
+.form-group
+  label(for='event-type') EVENT TYPE
+  select.form-control(name='event_type' id='event_type' onchange="itemChange()")
+    option(value='' selected disabled) Select the type of event
+    option(value='Design') 디자인
+    option(value='Programming') IT·프로그래밍
+    option(value='Contents') 콘텐츠 제작
+    option(value='Marketing') 마케팅
+    option(value='Tanslation') 번역·통역
+    option(value='Document') 문서·취업
+    option(value='Business') 비즈니스컨설팅
+    option(value='Consulting') 운세·상담
+    option(value='Listen') 레슨
+    option(value='Custom') 기프트·커스텀
+    option(value='Other') 그 외
+.form-group
+  label(for='event-topic') EVENT TOPIC
+  select.form-control.col-lg-3(name='event_topic' id='event_subtype')
+    option(value='' selected disabled) Select a topic
+br
+br
+
+
+
