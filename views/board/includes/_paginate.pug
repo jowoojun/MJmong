@@ -11,16 +11,21 @@ mixin paginate(docs, link, params)
     } else {
       var url = `${link}?page=`;
     }
-
+  
   if docs.pages > 1
-    - start = Math.max(docs.page - 5, 1);
-    - end = Math.min(docs.page + 5, docs.pages);
-    nav(aria-label="page navigation")
-      ul.pagination
-        li.page-item(class= (1 === docs.page) && 'disabled')
-          a.page-link(href= url + (docs.page - 1), tabindex='-1') Prev
-        - for(let p = start; p <= end; p++)
-          li.page-item(class= (p === docs.page) && 'active')
-            a.page-link(href= url + p)= p
-        li.page-item(class= (docs.pages === docs.page) && 'disabled')
-          a.page-link(href= url + (docs.page + 1), tabindex='-1') Next
+    - start = Math.max(docs.page - 1, 1);
+    - end = Math.min(docs.page + 1, docs.pages);
+    div.pagination-container
+      nav.pagination(aria-label="page navigation")
+        ul
+          li(class= (1 === docs.page) && 'isDisabled')
+            a(href= url + (docs.page - 1), tabindex='-1') Prev
+          - for(let p = start; p <= start+1; p++)
+            li(class= (p === docs.page) && 'active')
+              a(href= url + p, class= (p === docs.page) && 'current-page')= p
+          li.blank 
+            | ...
+          li(class= (end === docs.page) && 'active')
+            a(href= url + end, class= (end === docs.page) && 'current-page')= end
+          li(class= (end === docs.page) && 'isDisabled')
+            a(href= url + (docs.page + 1), tabindex='+1') Next

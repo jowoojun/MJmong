@@ -51,7 +51,7 @@ function validateForm(form) {
 /* GET home page. */
 router.get('/',  catchErrors(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 5;
+  const limit = parseInt(req.query.limit) || 2;
 
   var query = {};
   const term = req.query.term;
@@ -67,7 +67,7 @@ router.get('/',  catchErrors(async (req, res, next) => {
     populate: 'author', 
     page: page, limit: limit
   });
-
+  console.log(events)
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 

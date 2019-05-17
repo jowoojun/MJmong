@@ -22,9 +22,11 @@ block content
                 i.fa.fa-search.mr-2.mb-3
 
 
-    include ../include/_list
+    include ./includes/_list
     
       hr
-      a.button.right(href='/board/new') 
-        i.fa.fa-plus-circle
-        |  Create Event
+      div
+        +paginate(events, '/board', query)
+        a.button.right(href='/board/new' style="position: relative;") 
+          i.fa.fa-plus-circle
+          |  Create Event

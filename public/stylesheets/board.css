@@ -13,3 +13,70 @@
 .container .top_box .search a i{
   padding-bottom:15px;
 }
+
+
+/* ---------------------------------- */
+/* Pagination
+------------------------------------- */
+.pagination-container{
+  margin: 0 auto;
+  display: table; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.pagination {
+	margin: 9px 0 0 0;
+	text-align: center;
+	overflow: hidden;
+}
+
+.pagination ul li {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.pagination ul li a{
+	padding: 12px 0;
+	border-bottom: none;
+	display: inline-block;
+	color: #888;
+	background-color: #f2f2f2;
+	font-weight: 700;
+	margin:0;
+	font-size: 14px;
+}
+
+.pagination ul li a { 
+  width: 42px; 
+}
+
+.pagination ul li.blank {
+	color: #a0a0a0;
+	padding: 0 6px;
+}
+
+.pagination li.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.pagination ul li a.current-page {
+	background-color: #505050;
+	color: #fff;
+}
+
+.pagination .current,
+.pagination ul li a:hover{
+	background-color: #505050;
+	color: #fff;
+}
+
+.pagination ul li a.current-page,
+.pagination ul li a:hover,
+.pagination-next-prev ul li a:hover
+{ background-color: #fa5b0f; }
