@@ -9,16 +9,16 @@
     form(id='search-form', action='/search', method='POST')
       div.input-box
         h4.input-label 학교
-        input.form-control.long-input(type='text', name='campus', id='campus', placeholder='명지대학교 용인캠퍼스', aria-label='campus')
-        ul.campus-suggest-box.suggest-box
+        input.form-control.long-input(type='text', name='university', id='university', placeholder='명지대학교 용인캠퍼스', aria-label='university')
+        ul.university-suggest-box.suggest-box
           
       div.input-box
-        h4.input-label 전공
-        input.form-control.long-input(type='text', name='major', id='major', placeholder='컴퓨터공학과', aria-label='major')
+        h4.input-label 검색어
+        input.form-control.long-input(type='text', name='major', id='major', placeholder='C / C++ / python / ruby / 딥러닝', aria-label='major')
         ul.major-suggest-box.suggest-box
       button.btn.btn-info.search.searchBtn(type='submit') Search
     
-    script(src='/javascripts/campus_autocomplete.js')
+    script(src='/javascripts/university_autocomplete.js')
     script(src='/javascripts/major_autocomplete.js')
     
       //- // 검색엔진

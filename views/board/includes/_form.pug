@@ -1,10 +1,17 @@
 p.create-title Event Details
 .form-group
   label(for='title') EVENT TITLE *
-  input#title.form-control(type='text' name='title' placeholder='Give it a short distinct name')
+  input#title.form-control(type='text' name='title' placeholder='What is your lecture title?')
 .form-group
   label(for='event-description') EVENT DESCRIPTION *
   textarea#mytextarea.form-control(rows='7' name='event_description')
+.form-group
+  label(for='university') LOCATION *
+  input.form-control(type='university' name='university' id='university' placeholder='Which university will you do your lecture?' aria-label='university')
+  ul.university-suggest-box.suggest-box
+.form-group
+  label(for='price') PRICE *
+  input#title.form-control(type='price' name='price' placeholder='How much is your lecture?')
 p.create-title Additional Setting
 .form-group
   label(for='event-type') EVENT TYPE *
@@ -30,3 +37,4 @@ br
 
 
 
+script(src='/javascripts/university_autocomplete.js')

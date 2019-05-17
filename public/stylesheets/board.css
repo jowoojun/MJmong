@@ -1,0 +1,15 @@
+.container h1.main-title{
+  margin-top:25px;
+}
+.container .top_box .total_event{
+  display: inline-block;
+}
+
+.container .top_box .search{
+  display: inline-block;
+  float:right;
+}
+
+.container .top_box .search a i{
+  padding-bottom:15px;
+}

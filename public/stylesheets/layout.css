@@ -29,6 +29,10 @@ a.nav-link{
   margin-left: 10px !important;
 }
 
+li.nav-item.dropdown .dropdown-menu a.dropdown-item{
+  font-size:14px;
+}
+
 /* footer */
 .footer{
   border-top: 0.4em solid rgb(131, 119, 119);

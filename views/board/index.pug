@@ -4,19 +4,25 @@ include ./includes/_paginate
 
 block css
   
-  link(rel='stylesheet', href='/stylesheets/mystyle.css')
+  link(rel='stylesheet', href='/stylesheets/event-list.css')
+  link(rel='stylesheet', href='/stylesheets/board.css')
 block content
   .container
-    form.form-inline.search-input-group(action='/event', method='GET')
-      i.fa.fa-search.mr-2.mb-3
-      input.form-control.mr-sm-2.mb-3(type='text', name='term', placeholder='Search', aria-label='Search', value=term)
-
     h1.main-title 
       | Events
       if events.total > 0
-        .small Total #{events.total} event(s)
+        .top_box
+          .total_event
+            | Total #{events.total} event(s)
+          
+          .search
+            form.form-inline.search-input-group(action='/event', method='GET')
+              input.form-control.mr-sm-2.mb-3(type='text', name='term', placeholder='Search', aria-label='Search', value=term)
+              a(href="")
+                i.fa.fa-search.mr-2.mb-3
 
-    include ./includes/_list
+
+    include ../include/_list
     
       hr
       a.button.right(href='/board/new') 

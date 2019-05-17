@@ -4,7 +4,7 @@ else
   .margin-bottom-25 
   ul.event-list
     each event in events.docs
-      li.highlighted
+      li
         a(href='event-page.html')
           img(src='../images/avatar-placeholder.png', alt='')
           .event-list-content
@@ -24,5 +24,3 @@ else
                 i.fa.fa-meh-o
                 | #{event.rating} / 5.0
         .clearfix
-
-+paginate(events, '/board', query)
