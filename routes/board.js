@@ -67,7 +67,6 @@ router.get('/',  catchErrors(async (req, res, next) => {
     populate: 'author', 
     page: page, limit: limit
   });
-  
 
   res.render('board/index', {events: events, term: term, query: req.query});
 }));

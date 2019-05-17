@@ -1,10 +1,21 @@
+script(src='https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js')
+
 p.create-title Event Details
 .form-group
   label(for='title') EVENT TITLE *
   input#title.form-control(type='text' name='title' placeholder='What is your lecture title?')
 .form-group
   label(for='event-description') EVENT DESCRIPTION *
-  textarea#mytextarea.form-control(rows='7' name='event_description')
+  //- textarea#mytextarea.form-control(rows='7' name='event_description')
+  textarea#editor.form-control(name='event_description')
+    | 
+  script.
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
 .form-group
   label(for='university') LOCATION *
   input.form-control(type='university' name='university' id='university' placeholder='Which university will you do your lecture?' aria-label='university')

@@ -8,37 +8,11 @@ div.createEvent p.create-title {
   border-bottom: 1px solid gray;
   font-family: 'Kaushan Script', cursive;
 }
-div.createEvent .map_wrap {
-  position: relative;
-  width: 25em;
-  height: 25em;
-}
-div.createEvent .map_wrap .hAddr {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  background: #fff;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 1;
-  padding: 5px;
-}
-div.createEvent .map_wrap .hAddr #centerAddr {
-  display: block;
-  margin-top: 2px;
-  font-weight: normal;
-}
-div.createEvent .map_wrap .bAddr {
-  padding: 5px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
+
 div.createEvent .title {
   margin-top: 1em;
 }
-div.createEvent input.form-check-input {
-  margin-top: 0.5em;
-}
+
 div.createEvent button[name='free'], div.createEvent button[name='paid'] {
   margin: 2% 3% 0 3%;
   margin-left: auto;
@@ -48,21 +22,10 @@ div.createEvent .save {
   text-align: center;
   margin-bottom: 5%;
 }
-div.createEvent #free-table, div.createEvent #paid-table {
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: Arial, Helvetica, sans-serif;
-  display: table;
-}
-div.createEvent #free-table th, div.createEvent #paid-table th {
-  display: none;
-}
-div.createEvent #free-table td, div.createEvent #paid-table td {
-  text-align: center;
-  display: block;
-}
 
+div.createEvent textarea#editor {
+  height:70px;
+}
 /* 학교 자동완성 */
 .suggest-box {
   position: absolute;

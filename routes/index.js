@@ -32,7 +32,7 @@ router.post('/search', function(req, res, next) {
   res.render('test');
 });
 
-// 캠퍼스 검색
+// 학교 검색
 router.get('/university_search', function(req, res, next) {
   let q = req.query.q ? req.query.q.toLowerCase() : '';
 
