@@ -5,7 +5,7 @@ else
   ul.event-list
     each event in events.docs
       li.highlighted
-        a(href='event-page.html')
+        a(href='/board/' + event.id)
           img(src='../images/avatar-placeholder.png', alt='')
           .event-list-content
             h4

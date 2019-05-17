@@ -71,6 +71,12 @@ router.get('/',  catchErrors(async (req, res, next) => {
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 
+router.get('/:id', catchErrors(async (req, res, next) => {
+  const pageId = req.params.id;
+  const event = await Event.findById(pageId);
+  res.render('board/event-page', { event });
+}));
+
 router.get('/new', needAuth, catchErrors(async(req, res, next) => {
   res.render('board/new', {events: {}});
 }));

@@ -1,0 +1,47 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet', href='/stylesheets/event-detail.css')
+
+block content
+  div.container
+    div.leftContainer
+      div
+        span.category
+          | #{event.event_type} #{'>'} #{event.event_topic}
+      img(src='../images/event-placeholder.svg', alt='')
+    div.rightContainer
+      div.title
+        | #{event.title}
+      div.line
+      div.mentoringDetail
+        div.info#priceInfo
+          i.fa.fa-money
+          span#price
+            | #{event.price} Ƀ / 건
+        div.info
+          i.fa.fa-calendar
+          span
+            | #{moment(event.createdAt).format('YYYY-MM-DD')}
+        div.info
+          i.fa.fa-briefcase
+          span
+          if event.author.name
+            | #{event.author.name}
+          else
+            | 조우준
+        div.info
+          i.fa.fa-map-marker
+          span
+            | #{event.university}
+        div.info
+          i.fa.fa-star
+          span
+            | #{event.rating}
+        div.info
+          i.fa.fa-comments
+          span
+            | #{event.event_description}
+        div.buttonContainer
+          button
+            | Buy

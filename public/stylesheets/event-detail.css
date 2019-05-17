@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import url("font-awesome.min.css");		/* Font Awesome Icons */
+
+.container {
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  font-size: 16px;
+  margin-top: 2rem;
+}
+
+.leftContainer {
+  flex: 1;
+}
+
+.leftContainer img {
+  flex: 1;
+  width: 35rem;
+  margin: 1rem 0;
+}
+
+.leftContainer .category {
+  margin-right: .3rem;
+}
+
+.rightContainer {
+  flex: 1;
+  padding-left: 1rem;
+}
+
+.rightContainer .title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-top: 1.2rem;
+  padding-left: .4rem;
+}
+
+.rightContainer .line {
+  background-color: #dee2e6;
+  height: .08rem;
+  margin-top: .35rem;
+}
+
+.rightContainer .mentoringDetail {
+  font-size: .95rem;
+  padding-left: .4rem;
+}
+
+.rightContainer .mentoringDetail .info {
+  display: flex;
+  justify-content: flex-start;
+  padding: .1rem 0;
+}
+
+.info#priceInfo {
+  justify-content: flex-end;
+  margin: .3rem 1rem 0 0;
+}
+
+.info #price {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.rightContainer .mentoringDetail i {
+  margin-right: .3rem;
+  display: flex;
+  align-items: center;
+}
+
+.rightContainer .buttonContainer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.rightContainer button {
+  width: 85%;
+  color: #007bff;
+  border-color: #007bff;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
