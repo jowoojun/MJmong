@@ -7,7 +7,7 @@ p.create-title Event Details
   textarea#mytextarea.form-control(rows='7' name='event_description')
 p.create-title Additional Setting
 .form-group
-  label(for='event-type') EVENT TYPE
+  label(for='event-type') EVENT TYPE *
   select.form-control(name='event_type' id='event_type' onchange="itemChange()")
     option(value='' selected disabled) Select the type of event
     option(value='Design') 디자인
@@ -22,8 +22,8 @@ p.create-title Additional Setting
     option(value='Custom') 기프트·커스텀
     option(value='Other') 그 외
 .form-group
-  label(for='event-topic') EVENT TOPIC
-  select.form-control.col-lg-3(name='event_topic' id='event_subtype')
+  label(for='event-topic') EVENT TOPIC *
+  select.form-control.col-lg-3(name='event_topic' id='event_topic')
     option(value='' selected disabled) Select a topic
 br
 br

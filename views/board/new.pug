@@ -8,7 +8,7 @@ block script
     
 block content
   .createEvent
-    form#createEvent(action='/events', method='POST')
+    form#createEvent(action='/board', method='POST')
       include ./includes/_form
       .save
         button.btn.btn-outline-primary(type='submit') SAVE

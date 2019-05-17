@@ -11,7 +11,7 @@ $(function() {
           // Ajax의 결과를 잘 받았을 때
           // 화면에 받은 결과를 가지고 list를 rendering하고..
           var els = data.slice(0, 4).map(function(name) {
-            return '<div class="select"> <img class="select-img" src="../images/university.png", alt="Uni" /> <li>' + name + '</li> </div>';
+            return '<li class="select"><i class="fa fa-map-marker" /><p>' + name + '</p></li>';
           });
           $('.major-suggest-box').html(els.join('\n')).show();
 

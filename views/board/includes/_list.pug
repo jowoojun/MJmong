@@ -1,12 +1,32 @@
 if events.total <= 0 
   .alert.alert-info No events available yet
 else
-  .events
+  //- .events
     each event in events.docs
-      hr
-      .event
-        h3
-          a.title(href=`/event/${event.id}`)= event.title
-        include _event
+  .margin-bottom-25 
+  ul.event-list
+    li.highlighted
+      a(href='event-page.html')
+        img(src='../images/avatar-placeholder.png', alt='')
+        .event-list-content
+          h4
+            | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+          .event-icons
+            span
+              i.fa.fa-briefcase
+              |  조우준
+            span
+              i.fa.fa-map-marker
+              |  명지대학교
+            span
+              i.fa.fa-money
+              |  10 Ƀ / 건
+            span
+              i.fa.fa-star-o
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+              i.fa.fa-star
+      .clearfix
 
-  +paginate(events, '/event', query)
++paginate(events, '/board', query)

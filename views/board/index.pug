@@ -2,6 +2,9 @@ extends ../layout
 
 include ./includes/_paginate
 
+block css
+  
+  link(rel='stylesheet', href='/stylesheets/mystyle.css')
 block content
   .container
     form.form-inline.search-input-group(action='/event', method='GET')
@@ -11,9 +14,11 @@ block content
     h1.main-title 
       | Events
       if events.total > 0
-        .small Total #{events.total} events(s)
+        .small Total #{events.total} event(s)
 
     include ./includes/_list
     
       hr
-      a.m-3.btn-color.btn(href='/board/new') Create Event
+      a.button.right(href='/board/new') 
+        i.fa.fa-plus-circle
+        |  Create Event

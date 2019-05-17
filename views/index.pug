@@ -1,146 +1,135 @@
 extends layout
 
 block css
+  
+  link(rel='stylesheet', href='/stylesheets/mystyle.css')
   link(rel='stylesheet', type='text/css', href='/stylesheets/home.css')
 
 block content
   include ./main
-  div.body
-    p.popularEvents
-      | 명지대학교 멘토링에 직접 참여한 멘티들의 후기
-    p
-      | 명지대학교의 멘토링은 평균 별 5개 중 5개를 받았습니다
+  div
+    .margin-top-55
     //- each event in events
-    div.card_list
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-      .card
-        a.plain(href="/")
-          img.card-img-top(src='images/A6.jpeg', alt='event_photo')
-          .card-img-overlay
-            p 멘토 프로필
-          div.card-body
-            p.event-location 인문캠 S1353
-            p.event-name MJmong 프로젝트
-            p.event-people 현재 N명 수강 중
-            p.event-cost 5 Coin
-        ul.list-group.list-group-flush
-            li.list-group-item
-              div.favorite
-                a(href="/")
-                  i.fa.fa-bookmark-o.event-icon(aria-hidden='true')
-
-              div.rating-box
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
-                span.rating-star.full-star
+    .container
+      h3.margin-bottom-25 진행중인 멘토링
+      ul.event-list
+        li.highlighted
+          a(href='event-page.html')
+            img(src='../images/avatar-placeholder.png', alt='main picture')
+            .event-list-content
+              h4
+                | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+              .event-icons
+                span
+                  i.fa.fa-briefcase
+                  |  조우준
+                span
+                  i.fa.fa-map-marker
+                  |  명지대학교
+                span
+                  i.fa.fa-money
+                  |  10 Ƀ / 건
+                span
+                  i.fa.fa-star-o
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+          .clearfix
+        li
+          a(href='event-page.html')
+            img(src='../images/avatar-placeholder.png', alt='main picture')
+            .event-list-content
+              h4
+                | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+              .event-icons
+                span
+                  i.fa.fa-briefcase
+                  |  조우준
+                span
+                  i.fa.fa-map-marker
+                  |  명지대학교
+                span
+                  i.fa.fa-money
+                  |  10 Ƀ / 건
+                span
+                  i.fa.fa-star-o
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+          .clearfix
+        li
+          a(href='event-page.html')
+            img(src='../images/avatar-placeholder.png', alt='main picture')
+            .event-list-content
+              h4
+                | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+              .event-icons
+                span
+                  i.fa.fa-briefcase
+                  |  조우준
+                span
+                  i.fa.fa-map-marker
+                  |  명지대학교
+                span
+                  i.fa.fa-money
+                  |  10 Ƀ / 건
+                span
+                  i.fa.fa-star-o
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+          .clearfix
+        li
+          a(href='event-page.html')
+            img(src='../images/avatar-placeholder.png', alt='main picture')
+            .event-list-content
+              h4
+                | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+              .event-icons
+                span
+                  i.fa.fa-briefcase
+                  |  조우준
+                span
+                  i.fa.fa-map-marker
+                  |  명지대학교
+                span
+                  i.fa.fa-money
+                  |  10 Ƀ / 건
+                span
+                  i.fa.fa-star-o
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  i.fa.fa-star
+                  
+          .clearfix
+        li
+          a(href='event-page.html')
+            img(src='../images/avatar-placeholder.png', alt='main picture')
+            .event-list-content
+              h4
+                | HTML은 나에게 맡겨라! FrontEnd의 끝판왕!
+              .event-icons
+                span
+                  i.fa.fa-briefcase
+                  |  조우준
+                span
+                  i.fa.fa-map-marker
+                  |  명지대학교
+                span
+                  i.fa.fa-money
+                  |  10 Ƀ / 건
+                span
+                    i.fa.fa-star-o
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+          .clearfix
+      a.button.centered(href='browse-events.html')
+        i.fa.fa-plus-circle
+        |  Show More events
+      .margin-bottom-55

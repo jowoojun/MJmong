@@ -17,12 +17,12 @@ function itemChange(){
     changeItem =  monitor;
   }
   
-  $('#event_subtype').empty();
+  $('#event_topic').empty();
   
-  $('#event_subtype').append("<option value='' selected disabled> Select a topic</option>")
+  $('#event_topic').append("<option value='' selected disabled> Select a topic</option>")
   for(var count = 0; count < changeItem.length; count++){                
       var option = $("<option>"+changeItem[count]+"</option>");
-      $('#event_subtype').append(option);
+      $('#event_topic').append(option);
     }
   }
 

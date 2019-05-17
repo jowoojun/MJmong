@@ -8,7 +8,34 @@ function needAuth(req, res, next) {
     next();
   } else {
     req.flash('danger', 'Please signin first.');
+    res.redirect('/');
   }
+}
+
+function validateForm(form) {
+  var title = form.title || "";
+  var event_description = form.event_description || "";
+  var event_type = form.event_type || "";
+  var event_topic = form.event_topic || "";
+
+  title = title.trim();
+  event_description = event_description.trim();
+  event_type = event_type.trim();
+  event_topic = event_topic.trim();
+
+  if (!title) {
+    return 'Title is required.';
+  }
+  if (!event_description) {
+    return 'Event description is required.';
+  }
+  if (!event_type) {
+    return 'Event type is required.';
+  }
+  if (!event_topic) {
+    return 'Event description is required.';
+  }
+  return null;
 }
 
 /* GET home page. */
@@ -34,8 +61,31 @@ router.get('/',  catchErrors(async (req, res, next) => {
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 
-router.get('/new', catchErrors(async(req, res, next) => {
+router.get('/new', needAuth, catchErrors(async(req, res, next) => {
+  console.log
   res.render('board/new', {events: {}});
+}));
+
+router.post('/', needAuth, catchErrors(async (req, res, next) => {
+  const user = req.user;
+  const err = validateForm(req.body);
+
+  if (err) {
+    req.flash('danger', err);
+    return res.redirect('back');
+  }
+
+  var event = new Event({
+    title: req.body.title,
+    author: user._id,
+    event_description: req.body.event_description,
+    event_type: req.body.event_type,
+    event_topic: req.body.event_topic
+  });
+  await event.save();
+
+  req.flash('success', 'Successfully posted');
+  res.redirect('/board');
 }));
 
 module.exports = router;

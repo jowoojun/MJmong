@@ -52,6 +52,10 @@ app.use(function(req, res, next) {
   next();
 });
 
+// date
+app.locals.moment = require('moment');
+app.locals.querystring = require('querystring');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
