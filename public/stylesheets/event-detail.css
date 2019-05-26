@@ -3,9 +3,12 @@
 
 .container {
   font-family: 'Noto Sans KR', sans-serif;
-  display: flex;
   font-size: 16px;
   margin-top: 2rem;
+}
+
+.infoContainer {
+  display: flex;
 }
 
 .leftContainer {
@@ -86,4 +89,56 @@
   font-size: 1rem;
   line-height: 1.5;
   border-radius: .25rem;
+}
+
+.commentsContainer {
+  margin-top: 2rem;
+}
+
+.commentTitle {
+  margin-bottom: 1rem;
+}
+
+.inputText {
+  width: 100%;
+  border-radius: .25rem;
+  padding: .625rem;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.commentButton {
+  color: #6c757d;
+  border-color: #6c757d;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+}
+
+.commentList {
+  margin-top: .5rem;
+}
+
+.commentImage {
+  width: 5rem !important;
+  height: 5rem;
+}
+
+.paddingOne {
+  padding: 1rem;
+}
+
+.newContainer {
+  margin-top: 2rem;
 }
