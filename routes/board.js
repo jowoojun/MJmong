@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const catchErrors = require('../lib/async-error');
 const Event = require('../models/Event');
+const Comment = require('../models/Comment')
 
 function needAuth(req, res, next) {
   if (req.isAuthenticated()) {
@@ -13,12 +14,12 @@ function needAuth(req, res, next) {
 }
 
 function validateForm(form) {
-  var title = form.title || "";
-  var event_description = form.event_description || "";
-  var price = form.price || "";
-  var university = form.university || "";
-  var event_type = form.event_type || "";
-  var event_topic = form.event_topic || "";
+  const title = form.title || "";
+  const event_description = form.event_description || "";
+  const price = form.price || "";
+  const university = form.university || "";
+  const event_type = form.event_type || "";
+  const event_topic = form.event_topic || "";
   
 
   title = title.trim();
@@ -53,7 +54,7 @@ router.get('/',  catchErrors(async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 2;
 
-  var query = {};
+  const query = {};
   const term = req.query.term;
   if (term) {
     query = {$or: [
@@ -72,13 +73,37 @@ router.get('/',  catchErrors(async (req, res, next) => {
 }));
 
 router.get('/:id', catchErrors(async (req, res, next) => {
-  const pageId = req.params.id;
-  const event = await Event.findById(pageId);
-  res.render('board/event-page', { event });
+  const eventID = req.params.id;
+  const event = await Event.findById(eventID).populate('author');
+  const comments = await Comment.find({
+    event: eventID
+  }).populate('author');
+  console.log('comments', comments)
+  res.render('board/event-page', { event, comments });
 }));
 
 router.get('/new', needAuth, catchErrors(async(req, res, next) => {
   res.render('board/new', {events: {}});
+}));
+
+router.post('/comment', needAuth, catchErrors(async (req, res, next) => {
+  const eventID = req.body.eventID;
+  const user = req.user;
+
+  if (!req.body.content) {
+    req.flash('danger', err);
+    return res.redirect('back');
+  }
+
+  const comment = new Comment({
+    event: eventID,
+    author: user._id,
+    content: req.body.content,
+  })
+  await comment.save();
+
+  req.flash('success', 'Successfully commented');
+  res.redirect('/board/' + eventID);
 }));
 
 router.post('/', needAuth, catchErrors(async (req, res, next) => {
@@ -90,7 +115,7 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     return res.redirect('back');
   }
 
-  var event = new Event({
+  const event = new Event({
     title: req.body.title,
     author: user._id,
     event_description: req.body.event_description,
