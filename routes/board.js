@@ -14,19 +14,13 @@ function needAuth(req, res, next) {
 }
 
 function validateForm(form) {
-  const title = form.title || "";
-  const event_description = form.event_description || "";
-  const price = form.price || "";
-  const university = form.university || "";
-  const event_type = form.event_type || "";
-  const event_topic = form.event_topic || "";
-  
-
-  title = title.trim();
-  event_description = event_description.trim();
-
-  event_type = event_type.trim();
-  event_topic = event_topic.trim();
+  const title = form.title.trim() || "";
+  const event_description = form.event_description.trim() || "";
+  const price = form.price.trim() || "";
+  const phone = form.phone.trim() || "";
+  const university = form.university.trim() || "";
+  const event_type = form.event_type.trim() || "";
+  const event_topic = form.event_topic.trim() || "";
 
   if (!title) {
     return 'Title is required.';
@@ -39,6 +33,9 @@ function validateForm(form) {
   }
   if (!price){
     return 'Price is required.';
+  }
+  if (!phone){
+    return 'Phone is required.';
   }
   if (!event_type) {
     return 'Event type is required.';
@@ -111,6 +108,7 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
     title: req.body.title,
     author: user._id,
     event_description: req.body.event_description,
+    phone: req.body.phone,
     price: req.body.price,
     university: req.body.university,
     event_type: req.body.event_type,
