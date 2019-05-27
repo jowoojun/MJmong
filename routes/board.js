@@ -72,15 +72,7 @@ router.get('/',  catchErrors(async (req, res, next) => {
   res.render('board/index', {events: events, term: term, query: req.query});
 }));
 
-router.get('/:id', catchErrors(async (req, res, next) => {
-  const eventID = req.params.id;
-  const event = await Event.findById(eventID).populate('author');
-  const comments = await Comment.find({
-    event: eventID
-  }).populate('author');
-  console.log('comments', comments)
-  res.render('board/event-page', { event, comments });
-}));
+
 
 router.get('/new', needAuth, catchErrors(async(req, res, next) => {
   res.render('board/new', {events: {}});
@@ -129,6 +121,16 @@ router.post('/', needAuth, catchErrors(async (req, res, next) => {
 
   req.flash('success', 'Successfully posted');
   res.redirect('/board');
+}));
+
+router.get('/:id', catchErrors(async (req, res, next) => {
+  const eventID = req.params.id;
+  const event = await Event.findById(eventID).populate('author');
+  const comments = await Comment.find({
+    event: eventID
+  }).populate('author');
+  console.log('comments', comments)
+  res.render('board/event-page', { event, comments });
 }));
 
 module.exports = router;
