@@ -78,6 +78,7 @@ router.get('/new', needAuth, catchErrors(async(req, res, next) => {
 router.post('/comment', needAuth, catchErrors(async (req, res, next) => {
   const eventID = req.body.eventID;
   const user = req.user;
+  const score = req.body.score;
 
   if (!req.body.content) {
     req.flash('danger', err);
@@ -88,9 +89,15 @@ router.post('/comment', needAuth, catchErrors(async (req, res, next) => {
     event: eventID,
     author: user._id,
     content: req.body.content,
+    score
   })
   await comment.save();
 
+  const event = await Event.findById(eventID);
+  event.rating += score * 1;
+  event.total_rating_num += 1;
+  await event.save();
+  
   req.flash('success', 'Successfully commented');
   res.redirect('/board/' + eventID);
 }));

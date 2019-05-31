@@ -6,6 +6,7 @@ const schema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   content: { type: String },
   createdAt: { type: Date, default: Date.now },
+  score: { type: Number }
 }, {
   toJSON: { virtuals: true },
   toObject: { virtuals: true },

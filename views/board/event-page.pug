@@ -39,7 +39,10 @@ block content
           div.info
             i.fa.fa-star
             span
-              | #{event.rating}
+              if event.total_rating_num === 0
+                | #{event.rating} / 5.0
+              else
+                | #{event.rating / event.total_rating_num} / 5.0
           div.info
             i.fa.fa-comments
             span
@@ -63,11 +66,19 @@ block content
             div.rightContainer
               div
                 span
-                  i.fa.fa-briefcase
+                  i.fa.fa-tag
                   |  #{comment.author.name}
+              div
+                span
+                  i.fa.fa-star
+                  |  #{comment.score}
               div
                 | #{comment.content}
       form(action='/board/comment', method='POST').newContainer
+        div.scoreContainer
+          span
+            | 평점 :
+          input(name='score', type='number', min='0', max='5', step='0.5', placeholder='0').scoreInput
         textarea(name='content', placeholder='멘토링 후기를 작성해주세요!', rows=3).inputText
         input(name='eventID', value=event._id, type='hidden')
         div.buttonBox

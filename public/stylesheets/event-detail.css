@@ -142,3 +142,13 @@
 .newContainer {
   margin-top: 2rem;
 }
+
+.scoreContainer {
+  margin-bottom: .6rem;
+}
+
+.scoreInput {
+  border: solid 1px #dee2e6;
+  border-radius: .3rem;
+  margin-left: .2rem;
+}

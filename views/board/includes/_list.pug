@@ -22,7 +22,10 @@ else
                 |  #{event.price} Ƀ / 건
               span
                 i.fa.fa-meh-o
-                | #{event.rating} / 5.0
+                if event.total_rating_num === 0
+                  | #{event.rating} / 5.0
+                else
+                  | #{event.rating / event.total_rating_num} / 5.0
         .clearfix
 
   
