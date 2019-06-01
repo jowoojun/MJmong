@@ -13,6 +13,8 @@ var passport = require('passport');
 // mongodb
 var mongoose   = require('mongoose');
 
+var methodOverride = require('method-override');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var boardRouter = require('./routes/board');
@@ -22,6 +24,8 @@ var app = express();
 
 // flash Message
 app.use(flash());
+
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

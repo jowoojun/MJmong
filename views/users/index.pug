@@ -1,0 +1,52 @@
+extends ../layout
+
+block css
+  link(rel='stylesheet', href='/stylesheets/user-index.css')
+  link(rel='stylesheet', href='/stylesheets/event-list.css') 
+
+block content
+  form(action='/users/changeInfo?_method=PUT', method='POST')
+    div.line
+      div.title
+        | 개인정보 수정
+      div.subtitle
+        | 이름
+      div.input-group.mb-3
+        div.input-group-prepend
+          span.input-group-text
+            | name
+        input(type='text', value=user.name, name='newName').form-control
+    div.line
+      div.subtitle
+        | email
+      div.input-group.mb-3
+        div.input-group-prepend
+          span.input-group-text
+            | email
+        input(type='text', value=user.email, name='newEmail').form-control
+        input(type='hidden', name='email', value=user.email)
+    div.line
+      div.subtitle
+        | password
+      div
+        | 기존 비밀번호
+        div.input-group.mb-3
+          div.input-group-prepend
+            span.input-group-text
+              | password
+          input(type='password', name='password').form-control
+      div
+        | 새 비밀번호
+        div.input-group.mb-3
+          div.input-group-prepend
+            span.input-group-text
+              | new password
+          input(type='password', name='newPassword').form-control
+    div.buttonContainer
+      button.submitButton(type='submit')
+        | submit
+  div
+    .container
+      h3.margin-bottom-25
+        | 멘토링 목록
+      include ../include/_list-in-user

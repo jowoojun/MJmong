@@ -1,0 +1,29 @@
+if events.total <= 0 
+  .alert.alert-info No events available yet
+else
+  .margin-bottom-25 
+  ul.event-list
+    each event in events
+      li
+        a(href='/board/' + event.id)
+          img(src='../images/avatar-placeholder.png', alt='')
+          .event-list-content
+            h4
+              | #{event.title}
+            .event-icons
+              span
+                i.fa.fa-briefcase
+                |  #{user.name}
+              span
+                i.fa.fa-map-marker
+                |  #{event.university}
+              span
+                i.fa.fa-money
+                |  #{event.price} Ƀ / 건
+              span
+                i.fa.fa-meh-o
+                if event.total_rating_num === 0
+                  | #{event.rating} / 5.0
+                else
+                  | #{event.rating / event.total_rating_num} / 5.0
+        .clearfix

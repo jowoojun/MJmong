@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var User = require('../models/User');
+const express = require('express');
+const router = express.Router();
+const User = require('../models/User');
+const Event = require('../models/Event');
 const catchErrors = require('../lib/async-error');
 
 function needAuth(req, res, next) {
@@ -13,8 +14,8 @@ function needAuth(req, res, next) {
 }
 
 function validateForm(form, options) {
-  var name = form.name || "";
-  var email = form.email || "";
+  const name = form.name || "";
+  const email = form.email || "";
   name = name.trim();
   email = email.trim();
 
@@ -43,37 +44,16 @@ function validateForm(form, options) {
 
 router.get('/:id', needAuth, catchErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
-  res.render('users/index', {user: user});
+  const events = await Event.find({
+    author: req.params.id
+  });
+
+  res.render('users/index', { user, events });
 }));
 
 router.get('/:id/edit', needAuth, catchErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
   res.render('users/edit', {user: user});
-}));
-
-router.put('/:id/', needAuth, catchErrors(async (req, res, next) => {
-  const err = validateForm(req.body);
-  if (err) {
-    req.flash('danger', err);
-    return res.redirect('back');
-  }
-
-  const user = await User.findById({_id: req.params.id});
-  if (!user) {
-    req.flash('danger', 'Not exist user.');
-    return res.redirect('back');
-  }
-
-  if (!await user.validatePassword(req.body.password)) {
-    req.flash('danger', 'Current password invalid.');
-    return res.redirect('back');
-  }
-
-  user.name = req.body.name;
-  user.email = req.body.email;
-  await user.save();
-  req.flash('success', 'Updated successfully.');
-  res.redirect('/');
 }));
 
 // router.delete('/:id', needAuth, catchErrors(async (req, res, next) => {
@@ -83,12 +63,12 @@ router.put('/:id/', needAuth, catchErrors(async (req, res, next) => {
 // }));
 
 router.post('/signup', catchErrors(async (req, res, next) => {
-  var err = validateForm(req.body, {needPassword: true});
+  const err = validateForm(req.body, {needPassword: true});
   if (err) {
     req.flash('danger', err);
     return res.redirect('back');
   }
-  var user = await User.findOne({email: req.body.email});
+  const user = await User.findOne({email: req.body.email});
   
   if (user) {
     req.flash('danger', 'Email address already exists.');
@@ -101,6 +81,47 @@ router.post('/signup', catchErrors(async (req, res, next) => {
   user.password = await user.generateHash(req.body.password);
   await user.save();
   req.flash('success', 'Registered successfully. Please sign in.');
+  res.redirect('/');
+}));
+
+router.put('/changeInfo', catchErrors(async (req, res, next) => {
+  if (!req.body.password) {
+    req.flash('danger', '정보 변경시 기존 password 입력이 필요합니다.');
+    return res.redirect('back');
+  }
+
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    req.flash('danger', 'Not exist user.');
+    return res.redirect('back');
+  }
+
+  if (!await user.validatePassword(req.body.password)) {
+    req.flash('danger', 'Current password invalid.');
+    return res.redirect('back');
+  }
+
+  if (user.name !== req.body.newName) {
+    user.name = req.body.newName;
+  }
+
+  if (user.email !== req.body.newEmail) {
+    user.email = req.body.newEmail;
+  }
+
+  if (req.body.newPassword.length > 0) {
+    if (req.body.newPassword.legnth < 6){
+      req.flash('danger', 'Password must be at least 6 characters.');
+      return res.redirect('back');
+    }
+    user.password = await user.generateHash(req.body.newPassword);
+  }
+
+  await user.save((err) => {
+    if (err) { return next(err) }
+  });
+  req.flash('success', 'Updated successfully.');
+  req.logout();
   res.redirect('/');
 }));
 
